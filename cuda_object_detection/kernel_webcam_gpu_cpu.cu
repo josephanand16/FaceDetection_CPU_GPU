@@ -20,7 +20,7 @@ double fps = 0;
 String opencv_path = "C:/opencv";
 // Set the gloabal variable to true inorder to use the GPU
 // or false to use only CPU
-bool gpu_en = true;
+bool gpu_en = false;
 
 void cpumain()
 {
