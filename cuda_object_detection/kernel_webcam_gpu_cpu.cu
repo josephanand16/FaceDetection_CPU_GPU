@@ -31,9 +31,9 @@ void cpumain(const char** argv)
     String eyes_cascade_name = opencv_path + "/data/haarcascades/haarcascade_eye.xml";
     String face_cascade_name = opencv_path + "/data/haarcascades/haarcascade_frontalface_alt.xml";
     int camera_device = 0;
-    VideoCapture capture;
+    VideoCapture capture(argv[1]);
     // Read the video stream
-    capture.open(argv[1],CAP_ANY);
+    //capture.open(argv[1],CAP_ANY);
     // check if open succeeded
     if (!capture.isOpened()) {
         cerr << "ERROR! Unable to open videoFile\n";
@@ -42,13 +42,6 @@ void cpumain(const char** argv)
     // Get input FPS from video capture
     double frames_per_second = capture.get(CAP_PROP_FPS);
     Mat frame;
-    //store it into 'frame'
-        capture.read(frame);
-        // check if we succeeded
-        if (frame.empty()) {
-            cerr << "ERROR! blank frame grabbed\n";
-            break;
-        }
     double millisec, total_milli = 0;
     int count = 0;
     cout << "Processing frames on a CPU for:"<<argv[1];
