@@ -38,13 +38,21 @@ void cpumain(const char** argv)
     if (!capture.isOpened()) {
         cerr << "ERROR! Unable to open videoFile\n";
         }
+        capture.VideoCapture(argv[1],CAP_ANY);
+         //store it into 'frame'
+        capture.read(frame);
+        // check if we succeeded
+        if (frame.empty()) {
+            cerr << "ERROR! blank frame grabbed\n";
+            break;
+        }
     // Get input FPS from video capture
     double frames_per_second = capture.get(CAP_PROP_FPS);
     Mat frame;
 
     double millisec, total_milli = 0;
     int count = 0;
-    cout << "Processing frames on a CPU for:\n"<<argv[1];
+    cout << "Processing frames on a CPU for:"<<argv[1];
     cout << " FPS : " << frames_per_second << endl;
     while (capture.read(frame))
     {
