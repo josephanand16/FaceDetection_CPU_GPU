@@ -22,7 +22,7 @@ String opencv_path = "C:/opencv";
 // or false to use only CPU
 bool gpu_en = false;
 
-void cpumain()
+void cpumain(const char** argv)
 {
     // Using milli as time unit for fps calculation
     using milli = std::chrono::milliseconds;
@@ -196,7 +196,7 @@ int main(int argc, const char** argv)
 {
     if (!gpu_en)
     {
-        cpumain();
+        cpumain(argv[1]);
     }
     else
     {
