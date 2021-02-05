@@ -33,7 +33,7 @@ void cpumain()
     int camera_device = 0;
     VideoCapture capture;
     // Read the video stream
-    capture.open(camera_device);
+    capture.open(argv[1]);
     // Get input FPS from video capture
     double frames_per_second = capture.get(CAP_PROP_FPS);
     Mat frame;

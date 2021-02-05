@@ -3,3 +3,6 @@
 ################################################################################
 
 /.vs/FaceDetection_CPU_GPU/v16
+/.vs/cuda_object_detection/v16
+/.vs/ProjectSettings.json
+/.vs/slnx.sqlite
