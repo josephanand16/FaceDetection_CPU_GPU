@@ -35,6 +35,8 @@ void cpumain(const char** argv)
     // Read the video stream
     //capture.open(argv[1],CAP_ANY);
     // check if open succeeded
+    if (!capture.isOpened()) //if this fails, try to open as a video camera, through the use of an integer param
+        capture.open(atoi(arg.c_str()));
     if (!capture.isOpened()) {
         cerr << "ERROR! Unable to open videoFile\n";
         }
