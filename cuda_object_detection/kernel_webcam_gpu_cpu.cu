@@ -32,7 +32,7 @@ void cpumain(const char** argv)
     String face_cascade_name = opencv_path + "/data/haarcascades/haarcascade_frontalface_alt.xml";
     String str(argv[1]);
     int camera_device = 0;
-    VideoCapture capture(argv[1]);
+    VideoCapture capture(Video.MP4);
     // Read the video stream
     
     //capture.open(str,CAP_ANY);
