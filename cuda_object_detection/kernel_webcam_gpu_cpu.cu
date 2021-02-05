@@ -30,10 +30,12 @@ void cpumain(const char** argv)
     // !! Else the program fails.
     String eyes_cascade_name = opencv_path + "/data/haarcascades/haarcascade_eye.xml";
     String face_cascade_name = opencv_path + "/data/haarcascades/haarcascade_frontalface_alt.xml";
+    String str(argv[1])
     int camera_device = 0;
-    VideoCapture capture(argv[1],CAP_ANY);
+    VideoCapture capture(str,CAP_ANY);
     // Read the video stream
-    //capture.open(argv[1],CAP_ANY);
+    
+    //capture.open(str,CAP_ANY);
     // check if open succeeded
     if (!capture.isOpened()) {
         cerr << "ERROR! Unable to open videoFile\n";
