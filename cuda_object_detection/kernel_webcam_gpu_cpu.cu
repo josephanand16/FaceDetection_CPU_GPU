@@ -34,6 +34,11 @@ void cpumain(const char** argv)
     VideoCapture capture;
     // Read the video stream
     capture.open(argv[1]);
+    // check if open succeeded
+    if (!capture.isOpened()) {
+        cerr << "ERROR! Unable to open videoFile\n";
+        return -1;
+        }
     // Get input FPS from video capture
     double frames_per_second = capture.get(CAP_PROP_FPS);
     Mat frame;
