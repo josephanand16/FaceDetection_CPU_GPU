@@ -17,7 +17,7 @@ CascadeClassifier face_cascade;
 CascadeClassifier eyes_cascade;
 double fps = 0;
 // !! Modify the path with opencv drirectory that contains the cascade data
-String opencv_path = "C:/opencv";
+String opencv_path = "./work/opencv";
 // Set the gloabal variable to true inorder to use the GPU
 // or false to use only CPU
 bool gpu_en = false;
