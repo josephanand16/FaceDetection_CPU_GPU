@@ -11,7 +11,7 @@ using namespace cv;
 
 void detectAndDisplay(Mat frame);
 int gpumain();
-void cpumain();
+void cpumain(const char**);
 
 CascadeClassifier face_cascade;
 CascadeClassifier eyes_cascade;
