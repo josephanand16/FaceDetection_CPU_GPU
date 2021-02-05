@@ -40,7 +40,7 @@ void cpumain()
 
     double millisec, total_milli = 0;
     int count = 0;
-    cout << "Processing frames on a CPU\n";
+    cout << "Processing frames on a CPU:\n";
     while (capture.read(frame))
     {
         // Start time for fps calculation
