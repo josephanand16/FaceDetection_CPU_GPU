@@ -11,7 +11,7 @@ using namespace cv;
 
 void detectAndDisplay(Mat frame);
 int gpumain();
-void cpumain(char** argv);
+void cpumain(const char** argv);
 
 CascadeClassifier face_cascade;
 CascadeClassifier eyes_cascade;
@@ -22,7 +22,7 @@ String opencv_path = "C:/opencv";
 // or false to use only CPU
 bool gpu_en = false;
 
-void cpumain(char** argv)
+void cpumain(const char** argv)
 {
     // Using milli as time unit for fps calculation
     using milli = std::chrono::milliseconds;
