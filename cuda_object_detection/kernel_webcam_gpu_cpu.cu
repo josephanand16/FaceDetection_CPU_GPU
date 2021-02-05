@@ -33,7 +33,7 @@ void cpumain(const char** argv)
     int camera_device = 0;
     VideoCapture capture;
     // Read the video stream
-    capture.open(argv[1]);
+    capture.open(argv[1],CAP_ANY);
     // check if open succeeded
     if (!capture.isOpened()) {
         cerr << "ERROR! Unable to open videoFile\n";
@@ -44,7 +44,7 @@ void cpumain(const char** argv)
 
     double millisec, total_milli = 0;
     int count = 0;
-    cout << "Processing frames on a CPU:\n";
+    cout << "Processing frames on a CPU for:\n"<<argv[1];
     cout << " FPS : " << frames_per_second << endl;
     while (capture.read(frame))
     {
