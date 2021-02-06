@@ -26,10 +26,6 @@ void cpumain(const char** argv)
 {
     // Using milli as time unit for fps calculation
     using milli = std::chrono::milliseconds;
-    // !! Ensure the path is correct
-    // !! Else the program fails.
-    String eyes_cascade_name = opencv_path + "/data/haarcascades/haarcascade_eye.xml";
-    String face_cascade_name = opencv_path + "/data/haarcascades/haarcascade_frontalface_alt.xml";
     String str(argv[1]);
     int camera_device = 0;
     VideoCapture capture(argv[1]);
@@ -80,6 +76,12 @@ void cpumain(const char** argv)
 
 void detectAndDisplay(Mat frame)
 {
+    // !! Ensure the path is correct
+    // !! Else the program fails.
+    String eyes_cascade_name = opencv_path + "/data/haarcascades/haarcascade_eye.xml";
+    String face_cascade_name = opencv_path + "/data/haarcascades/haarcascade_frontalface_alt.xml";
+    face_cascade.load(face_cascade_name);
+    eyes_cascade.load(eyes_cascade_name);
     Mat frame_gray;
     cvtColor(frame, frame_gray, COLOR_BGR2GRAY);
     equalizeHist(frame_gray, frame_gray);
