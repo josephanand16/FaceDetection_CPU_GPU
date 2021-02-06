@@ -35,7 +35,7 @@ void cpumain(const char** argv)
     VideoCapture capture("Video.MP4");
     // Read the video stream
     
-    //capture.open(str,CAP_ANY);
+    capture.open(str,CAP_ANY);
     // check if open succeeded
     if (!capture.isOpened()) {
         cerr << "ERROR! Unable to open videoFile\n";
