@@ -113,6 +113,11 @@ int gpumain()
     int count = 0;
     String eye_cascade_name = opencv_path + "/data/haarcascades_cuda/haarcascade_eye.xml";
     String face_cascade_name = opencv_path + "/data/haarcascades_cuda/haarcascade_frontalface_alt.xml";
+    
+    // For Using video file, uncomment the below two lines and comment "VideoCapture cap(0);"
+    // string filename = "videoplayback.mp4";
+    // VideoCapture cap(filename);
+    
     // open the Webcam
     VideoCapture cap(0);
     // if not success, exit program
