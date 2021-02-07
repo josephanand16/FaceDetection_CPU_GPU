@@ -13,8 +13,6 @@ void detectAndDisplay(Mat frame);
 int gpumain();
 void cpumain();
 
-CascadeClassifier face_cascade;
-CascadeClassifier eyes_cascade;
 double fps = 0;
 // !! Modify the path with opencv drirectory that contains the cascade data
 String opencv_path = "C:/opencv";
@@ -26,14 +24,17 @@ void cpumain()
 {
     // Using milli as time unit for fps calculation
     using milli = std::chrono::milliseconds;
-    // !! Ensure the path is correct
-    // !! Else the program fails.
-    String eyes_cascade_name = opencv_path + "/data/haarcascades/haarcascade_eye.xml";
-    String face_cascade_name = opencv_path + "/data/haarcascades/haarcascade_frontalface_alt.xml";
-    int camera_device = 0;
+    
+    //Reading from camera input
+    /* int camera_device = 0;
     VideoCapture capture;
     // Read the video stream
-    capture.open(camera_device);
+    capture.open(camera_device); */
+    
+    //Reading from video file
+    string filename = "videoplayback.mp4";
+    VideoCapture capture(filename);
+    
     // Get input FPS from video capture
     double frames_per_second = capture.get(CAP_PROP_FPS);
     Mat frame;
@@ -73,6 +74,15 @@ void cpumain()
 
 void detectAndDisplay(Mat frame)
 {
+    // !! Ensure the path is correct
+    // !! Else the program fails.
+    String eyes_cascade_name = opencv_path + "/data/haarcascades/haarcascade_eye.xml";
+    String face_cascade_name = opencv_path + "/data/haarcascades/haarcascade_frontalface_alt.xml";
+    CascadeClassifier face_cascade;
+    CascadeClassifier eyes_cascade;
+    face_cascade.load(face_cascade_name);
+    eyes_cascade.load(eyes_cascade_name);
+    
     Mat frame_gray;
     cvtColor(frame, frame_gray, COLOR_BGR2GRAY);
     equalizeHist(frame_gray, frame_gray);
